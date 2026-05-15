@@ -12,6 +12,7 @@ This is not a production trading system, live trading tool, or investment strate
 - Parsing timestamps and preparing a time-series index
 - Calculating returns, rolling mean, and rolling volatility
 - Building a simple momentum signal
+- Avoiding look-ahead bias by shifting the signal before calculating strategy returns
 - Running a simplified backtest
 - Calculating cumulative return, max drawdown, win rate, and a Sharpe-like metric
 - Visualizing price, volatility, and strategy equity curve
