@@ -33,8 +33,10 @@ market-signal-lab/
   requirements.txt
   data/
     sample_prices.csv
+    volatile_sample_prices.csv
   notebooks/
     market_signal_analysis.ipynb
+    market_signal_analysis_volatile_sample.ipynb
   src/
     metrics.py
     signals.py
@@ -54,19 +56,29 @@ Install dependencies:
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Open and run the notebook:
+Open and run one of the notebooks:
 
 ```text
 notebooks/market_signal_analysis.ipynb
+notebooks/market_signal_analysis_volatile_sample.ipynb
 ```
 
 Run all cells from top to bottom.
 
+## Notebooks
+
+This project includes two notebooks with the same analysis workflow applied to different sample datasets:
+
+- `market_signal_analysis.ipynb` uses a smoother trending sample dataset.
+- `market_signal_analysis_volatile_sample.ipynb` uses a more volatile synthetic sample with declines, recoveries, and short-term reversals.
+
+The second notebook is included to show how the same signal testing workflow behaves under a less smooth market path.
+
 ## Notebook Overview
 
-The notebook:
+Each notebook:
 
-- loads sample price data from `data/sample_prices.csv`
+- loads sample price data from CSV
 - converts timestamps to datetime values
 - sorts observations by time
 - calculates returns, rolling mean, and rolling volatility
@@ -78,9 +90,12 @@ The notebook:
 
 ## Dataset
 
-The included dataset is a small hourly sample market price series.
+The included datasets are small hourly sample market price series:
 
-It is used as an illustrative market time-series proxy. The purpose of the project is to demonstrate analysis workflow and backtest mechanics, not to model a specific energy market or claim a profitable strategy.
+- `sample_prices.csv` is a smoother illustrative price path.
+- `volatile_sample_prices.csv` is a synthetic volatile sample designed to produce more visible changes in volatility, position, equity curve, and drawdown.
+
+They are used as illustrative market time-series proxies. The purpose of the project is to demonstrate analysis workflow and backtest mechanics, not to model a specific market or claim a profitable strategy.
 
 ## Example Metrics
 
@@ -98,11 +113,11 @@ The Sharpe-like metric is simplified and does not include a risk-free rate. It s
 - Simplified execution model
 - No order book, liquidity, slippage, or market impact modeling
 - Transaction costs are not included
-- Small illustrative dataset
+- Small illustrative datasets
 - No out-of-sample validation
 - No walk-forward testing
 - Signal parameters are not optimized
-- Results are sensitive to the sample data
+- Results are sensitive to the selected sample data
 - Not a production trading system
 - Not investment advice
 
