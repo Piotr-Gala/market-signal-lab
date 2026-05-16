@@ -6,6 +6,14 @@ The goal is to demonstrate practical Python data analysis skills: loading market
 
 This is not a production trading system, live trading tool, or investment strategy.
 
+## Market Data Trilogy
+
+This repository is part of a small three-project portfolio focused on market data ingestion, monitoring, analysis, and signal evaluation:
+
+- [Market Feed Monitor](https://github.com/Piotr-Gala/market-feed-monitor) — ASP.NET Core + React dashboard for market data ingestion, PostgreSQL snapshots, feed health monitoring, and alerts.
+- [Market Signal Lab](https://github.com/Piotr-Gala/market-signal-lab) — Python/Jupyter project for time-series analysis, feature engineering, simple signal testing, and backtest metrics.
+- [Market Snapshot Tool](https://github.com/Piotr-Gala/market-snapshot-tool) — Java CLI tool for fetching market data and calculating return and realized volatility snapshots.
+
 ## What This Project Demonstrates
 
 - Loading market price data from CSV
