@@ -87,7 +87,7 @@ The second notebook is included to show how the same signal testing workflow beh
 
 ## Notebook Overview
 
-Each notebook:
+Both notebooks:
 
 - loads sample price data from CSV
 - converts timestamps to datetime values
@@ -98,6 +98,9 @@ Each notebook:
 - calculates strategy returns and an equity curve
 - reports basic backtest metrics
 - visualizes price, volatility, and equity curve
+
+The volatile sample notebook also:
+
 - compares momentum and mean reversion results on the volatile sample
 - compares momentum equity before and after simple transaction costs
 
