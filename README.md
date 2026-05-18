@@ -25,6 +25,7 @@ This repository is part of a small three-project portfolio focused on market dat
 - Calculating cumulative return, max drawdown, win rate, and a Sharpe-like metric
 - Visualizing price, volatility, and strategy equity curve
 - Discussing limitations instead of pretending the signal is production-ready
+- Comparing simple momentum and mean reversion market patterns
 
 ## Tech Stack
 
@@ -79,7 +80,7 @@ Run all cells from top to bottom.
 This project includes two notebooks with the same analysis workflow applied to different sample datasets:
 
 - `market_signal_analysis.ipynb` uses a smoother trending sample dataset.
-- `market_signal_analysis_volatile_sample.ipynb` uses a more volatile synthetic sample with declines, recoveries, and short-term reversals.
+- `market_signal_analysis_volatile_sample.ipynb` uses a more volatile synthetic sample and compares momentum with mean reversion behavior.
 
 The second notebook is included to show how the same signal testing workflow behaves under a less smooth market path.
 
@@ -96,6 +97,7 @@ Each notebook:
 - calculates strategy returns and an equity curve
 - reports basic backtest metrics
 - visualizes price, volatility, and equity curve
+- compares momentum and mean reversion results on the volatile sample
 
 ## Dataset
 
