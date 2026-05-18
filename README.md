@@ -26,6 +26,7 @@ This repository is part of a small three-project portfolio focused on market dat
 - Visualizing price, volatility, and strategy equity curve
 - Discussing limitations instead of pretending the signal is production-ready
 - Comparing simple momentum and mean reversion market patterns
+- Applying a simple transaction cost assumption to test how execution costs affect strategy results
 
 ## Tech Stack
 
@@ -98,6 +99,7 @@ Each notebook:
 - reports basic backtest metrics
 - visualizes price, volatility, and equity curve
 - compares momentum and mean reversion results on the volatile sample
+- compares momentum equity before and after simple transaction costs
 
 ## Dataset
 
@@ -119,11 +121,13 @@ The notebook calculates:
 
 The Sharpe-like metric is simplified and does not include a risk-free rate. It should not be interpreted as a full professional Sharpe ratio.
 
+The volatile sample notebook also shows how a simple transaction cost assumption lowers the momentum strategy equity curve.
+
 ## Limitations
 
 - Simplified execution model
 - No order book, liquidity, slippage, or market impact modeling
-- Transaction costs are not included
+- Transaction costs use a simplified fixed-cost assumption
 - Small illustrative datasets
 - No out-of-sample validation
 - No walk-forward testing
