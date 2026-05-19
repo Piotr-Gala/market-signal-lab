@@ -89,15 +89,15 @@ The second notebook is included to show how the same signal testing workflow beh
 
 Both notebooks:
 
-- loads sample price data from CSV
-- converts timestamps to datetime values
-- sorts observations by time
-- calculates returns, rolling mean, and rolling volatility
-- creates a simple momentum signal
-- shifts the signal by one period to avoid look-ahead bias
-- calculates strategy returns and an equity curve
-- reports basic backtest metrics
-- visualizes price, volatility, and equity curve
+- load sample price data from CSV
+- convert timestamps to datetime values
+- sort observations by time
+- calculate returns, rolling mean, and rolling volatility
+- create a simple momentum signal
+- shift the signal by one period to avoid look-ahead bias
+- calculate strategy returns and an equity curve
+- report basic backtest metrics
+- visualize price, volatility, and equity curve
 
 The volatile sample notebook also:
 
@@ -106,7 +106,7 @@ The volatile sample notebook also:
 
 ## Dataset
 
-The included datasets are small hourly sample market price series:
+The included datasets are illustrative hourly market price series with 720 observations each:
 
 - `sample_prices.csv` is a smoother illustrative price path.
 - `volatile_sample_prices.csv` is a synthetic volatile sample designed to produce more visible changes in volatility, position, equity curve, and drawdown.
@@ -131,7 +131,7 @@ The volatile sample notebook also shows how a simple transaction cost assumption
 - Simplified execution model
 - No order book, liquidity, slippage, or market impact modeling
 - Transaction costs use a simplified fixed-cost assumption
-- Small illustrative datasets
+- Synthetic datasets rather than real market data
 - No out-of-sample validation
 - No walk-forward testing
 - Signal parameters are not optimized
