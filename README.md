@@ -26,7 +26,8 @@ This repository is part of a small three-project portfolio focused on market dat
 - Visualizing price, volatility, and strategy equity curve
 - Discussing limitations instead of pretending the signal is production-ready
 - Comparing simple momentum and mean reversion market patterns
-- Applying a simple transaction cost assumption to test how execution costs affect strategy results
+- Applying a simple transaction cost assumption and comparing before/after cost metrics
+- Testing reusable metric and signal helper functions with pytest
 
 ## Tech Stack
 
@@ -35,6 +36,7 @@ This repository is part of a small three-project portfolio focused on market dat
 - pandas
 - NumPy
 - matplotlib
+- pytest
 
 ## Project Structure
 
@@ -51,6 +53,9 @@ market-signal-lab/
   src/
     metrics.py
     signals.py
+  tests/
+    test_metrics.py
+    test_signals.py
 ```
 
 ## How To Run
@@ -65,6 +70,12 @@ Install dependencies:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Run tests:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
 ```
 
 Open and run one of the notebooks:
@@ -102,7 +113,7 @@ Both notebooks:
 The volatile sample notebook also:
 
 - compares momentum and mean reversion results on the volatile sample
-- compares momentum equity before and after simple transaction costs
+- compares momentum equity and metrics before and after simple transaction costs
 
 ## Dataset
 
@@ -124,7 +135,7 @@ The notebook calculates:
 
 The Sharpe-like metric is simplified and does not include a risk-free rate. It should not be interpreted as a full professional Sharpe ratio.
 
-The volatile sample notebook also shows how a simple transaction cost assumption lowers the momentum strategy equity curve.
+The volatile sample notebook also compares momentum performance before and after transaction costs using both an equity curve and a metrics table.
 
 ## Limitations
 
