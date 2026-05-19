@@ -137,6 +137,12 @@ The Sharpe-like metric is simplified and does not include a risk-free rate. It s
 
 The volatile sample notebook also compares momentum performance before and after transaction costs using both an equity curve and a metrics table.
 
+## Key Takeaways
+
+- Shifting the signal before calculating returns avoids a basic look-ahead bias mistake.
+- Transaction costs materially reduce the momentum result, even in this simplified setup.
+- Momentum outperforms mean reversion only on this synthetic sample; this should not be treated as a general market conclusion.
+
 ## Limitations
 
 - Simplified execution model
