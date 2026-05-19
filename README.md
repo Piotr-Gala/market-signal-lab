@@ -26,7 +26,8 @@ This repository is part of a small three-project portfolio focused on market dat
 - Visualizing price, volatility, and strategy equity curve
 - Discussing limitations instead of pretending the signal is production-ready
 - Comparing simple momentum and mean reversion market patterns
-- Applying a simple transaction cost assumption to test how execution costs affect strategy results
+- Applying a simple transaction cost assumption and comparing before/after cost metrics
+- Testing reusable metric and signal helper functions with pytest
 
 ## Tech Stack
 
@@ -35,6 +36,7 @@ This repository is part of a small three-project portfolio focused on market dat
 - pandas
 - NumPy
 - matplotlib
+- pytest
 
 ## Project Structure
 
@@ -51,6 +53,9 @@ market-signal-lab/
   src/
     metrics.py
     signals.py
+  tests/
+    test_metrics.py
+    test_signals.py
 ```
 
 ## How To Run
@@ -65,6 +70,12 @@ Install dependencies:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Run tests:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
 ```
 
 Open and run one of the notebooks:
@@ -89,24 +100,24 @@ The second notebook is included to show how the same signal testing workflow beh
 
 Both notebooks:
 
-- loads sample price data from CSV
-- converts timestamps to datetime values
-- sorts observations by time
-- calculates returns, rolling mean, and rolling volatility
-- creates a simple momentum signal
-- shifts the signal by one period to avoid look-ahead bias
-- calculates strategy returns and an equity curve
-- reports basic backtest metrics
-- visualizes price, volatility, and equity curve
+- load sample price data from CSV
+- convert timestamps to datetime values
+- sort observations by time
+- calculate returns, rolling mean, and rolling volatility
+- create a simple momentum signal
+- shift the signal by one period to avoid look-ahead bias
+- calculate strategy returns and an equity curve
+- report basic backtest metrics
+- visualize price, volatility, and equity curve
 
 The volatile sample notebook also:
 
 - compares momentum and mean reversion results on the volatile sample
-- compares momentum equity before and after simple transaction costs
+- compares momentum equity and metrics before and after simple transaction costs
 
 ## Dataset
 
-The included datasets are small hourly sample market price series:
+The included datasets are illustrative hourly market price series with 720 observations each:
 
 - `sample_prices.csv` is a smoother illustrative price path.
 - `volatile_sample_prices.csv` is a synthetic volatile sample designed to produce more visible changes in volatility, position, equity curve, and drawdown.
@@ -124,14 +135,20 @@ The notebook calculates:
 
 The Sharpe-like metric is simplified and does not include a risk-free rate. It should not be interpreted as a full professional Sharpe ratio.
 
-The volatile sample notebook also shows how a simple transaction cost assumption lowers the momentum strategy equity curve.
+The volatile sample notebook also compares momentum performance before and after transaction costs using both an equity curve and a metrics table.
+
+## Key Takeaways
+
+- Shifting the signal before calculating returns avoids a basic look-ahead bias mistake.
+- Transaction costs materially reduce the momentum result, even in this simplified setup.
+- Momentum outperforms mean reversion only on this synthetic sample; this should not be treated as a general market conclusion.
 
 ## Limitations
 
 - Simplified execution model
 - No order book, liquidity, slippage, or market impact modeling
 - Transaction costs use a simplified fixed-cost assumption
-- Small illustrative datasets
+- Synthetic datasets rather than real market data
 - No out-of-sample validation
 - No walk-forward testing
 - Signal parameters are not optimized
